@@ -1,0 +1,284 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.5">
+  <title>南宫导航 · 简明指南</title>
+  <style>
+    * {
+      margin: 0;
+      padding: 0;
+      box-sizing: border-box;
+    }
+
+    body {
+      font-family: system-ui, -apple-system, 'Segoe UI', Roboto, 'Helvetica Neue', sans-serif;
+      line-height: 1.7;
+      background-color: #f5f7fc;
+      color: #1f2937;
+    }
+
+    /* 深色横幅 */
+    .hero {
+      background: linear-gradient(145deg, #0b1a2e 0%, #1a2f44 100%);
+      color: #eef2f6;
+      padding: 5rem 2rem 4.5rem;
+      text-align: center;
+      position: relative;
+      overflow: hidden;
+    }
+
+    .hero::after {
+      content: '';
+      position: absolute;
+      bottom: -2px;
+      left: 0;
+      width: 100%;
+      height: 60px;
+      background: #f5f7fc;
+      clip-path: ellipse(80% 100% at 50% 100%);
+    }
+
+    .hero h1 {
+      font-size: 2.8rem;
+      font-weight: 600;
+      letter-spacing: 0.01em;
+      margin-bottom: 0.6rem;
+    }
+
+    .hero .sub {
+      font-size: 1.15rem;
+      color: #b0c9e0;
+      max-width: 680px;
+      margin: 0 auto 1.4rem;
+      font-weight: 300;
+    }
+
+    .hero .badge {
+      display: inline-block;
+      background: rgba(255, 255, 255, 0.08);
+      backdrop-filter: blur(2px);
+      padding: 0.3rem 1.2rem;
+      border-radius: 60px;
+      font-size: 0.85rem;
+      border: 1px solid rgba(255, 255, 255, 0.15);
+      color: #cbdae9;
+    }
+
+    /* 正文区 浅色 */
+    .container {
+      max-width: 960px;
+      margin: -1rem auto 0;
+      padding: 0 2rem 3rem;
+      position: relative;
+      z-index: 2;
+    }
+
+    .intro-card {
+      background: #ffffff;
+      border-radius: 24px;
+      padding: 2.8rem 2.5rem;
+      box-shadow: 0 12px 32px -12px rgba(0, 20, 40, 0.08);
+      margin-bottom: 2.4rem;
+    }
+
+    .intro-card h2 {
+      font-size: 1.6rem;
+      font-weight: 500;
+      margin-bottom: 1rem;
+      border-left: 5px solid #1a3b5c;
+      padding-left: 1rem;
+      color: #0a1e32;
+    }
+
+    .intro-card p {
+      margin-bottom: 1.2rem;
+      font-weight: 380;
+    }
+
+    .intro-card p:last-child {
+      margin-bottom: 0;
+    }
+
+    .feature-grid {
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      gap: 1.5rem;
+      margin: 1.8rem 0;
+    }
+
+    .feature-item {
+      background: #f3f6fe;
+      border-radius: 18px;
+      padding: 1.5rem 1.4rem;
+      transition: background 0.2s;
+    }
+
+    .feature-item strong {
+      display: block;
+      font-size: 1.1rem;
+      margin-bottom: 0.2rem;
+      color: #1d3b57;
+    }
+
+    .feature-item span {
+      font-size: 0.95rem;
+      color: #3b4d61;
+    }
+
+    .quote-note {
+      background: #eaf0fa;
+      border-radius: 18px;
+      padding: 1.3rem 1.8rem;
+      margin: 1.8rem 0 1rem;
+      border-left: 4px solid #1d4e7a;
+      font-style: normal;
+    }
+
+    .quote-note strong {
+      color: #0b2a44;
+    }
+
+    .cta-footer {
+      text-align: center;
+      margin-top: 2.5rem;
+      padding: 2rem 0 2.5rem;
+      border-top: 1px solid #dde3ed;
+    }
+
+    .cta-footer p {
+      font-size: 1rem;
+      color: #2c405c;
+      max-width: 600px;
+      margin: 0 auto 0.5rem;
+    }
+
+    .cta-footer a {
+      color: #1a4a78;
+      font-weight: 540;
+      text-decoration: none;
+      border-bottom: 1px solid #9fbad7;
+      transition: border-color 0.15s, color 0.15s;
+    }
+
+    .cta-footer a:hover {
+      color: #0b2f51;
+      border-bottom-color: #0b2f51;
+    }
+
+    .small-meta {
+      font-size: 0.8rem;
+      color: #6a7e99;
+      margin-top: 1.2rem;
+    }
+
+    @media (max-width: 680px) {
+      .hero h1 {
+        font-size: 2rem;
+      }
+
+      .hero {
+        padding: 3.2rem 1.5rem 3.8rem;
+      }
+
+      .container {
+        padding: 0 1rem 2rem;
+      }
+
+      .intro-card {
+        padding: 1.8rem 1.2rem;
+        border-radius: 20px;
+      }
+
+      .feature-grid {
+        grid-template-columns: 1fr;
+        gap: 1rem;
+      }
+
+      .intro-card h2 {
+        font-size: 1.3rem;
+      }
+
+      .quote-note {
+        padding: 1rem 1.2rem;
+      }
+    }
+  </style>
+</head>
+<body>
+
+  <!-- 深色头图 / 杂志横幅 -->
+  <header class="hero">
+    <h1>南宫导航 · 信息地图</h1>
+    <p class="sub">聚合实用资源的简明指南，帮助你在不同场景下快速定位所需站点。</p>
+    <div class="badge">专注效率 · 减少跳转 · 持续更新</div>
+  </header>
+
+  <main class="container">
+    <div class="intro-card">
+      <h2>从使用场景出发</h2>
+      <p>
+        网络上的工具、资料、平台越来越零散，收藏夹容易过期，搜索引擎也未必总能给出最直接的路径。<strong>南宫导航</strong> 试图将经过筛选的链接按主题分类，减少反复查找的消耗。无论你是日常查阅，还是阶段性需要特定资源，都可以从这里出发。
+      </p>
+
+      <div class="feature-grid">
+        <div class="feature-item">
+          <strong>分类索引</strong>
+          <span>设计、开发、学术、生活…… 每个分类下只保留有明确用途的站点，避免信息过载。</span>
+        </div>
+        <div class="feature-item">
+          <strong>轻量访问</strong>
+          <span>页面结构简洁，不依赖重型框架，加载快，适合多设备环境。</span>
+        </div>
+        <div class="feature-item">
+          <strong>定期维护</strong>
+          <span>失效链接会逐步清理，替换为更稳定或更适用的替代来源。</span>
+        </div>
+        <div class="feature-item">
+          <strong>开放收藏</strong>
+          <span>用户可提交建议，帮助扩充有价值的内容节点。</span>
+        </div>
+      </div>
+
+      <p>
+        如果你正在寻找某个特定方向的入口，建议先浏览类别标题，再进入相应分区。部分站点需要境外网络环境，请自行留意。
+      </p>
+    </div>
+
+    <div class="intro-card">
+      <h2>访问提醒与注意事项</h2>
+      <p>
+        网站本身不提供下载、托管或代理服务，只作为指向性工具。请在使用外部链接时注意甄别内容的时效性与合规性。部分站点可能要求注册或登录，建议阅读其隐私政策。
+      </p>
+      <div class="quote-note">
+        <strong>提示：</strong> 如果你需要快速返回总目录，可将 <a href="https://nav-nangong.com" style="color:#1a4a78;text-decoration:underline;border-bottom:1px solid #9fbad7;">南宫导航</a> 设为浏览器主页或书签栏。日常使用中留意分类是否有更新，通常每月会有小范围调整。
+      </div>
+      <p>
+        对于学术类链接，建议核对数据库的覆盖范围；开发工具类则留意版本差异。如果发现某个链接无法正常打开，可以稍后再试或通过反馈渠道告知。
+      </p>
+    </div>
+
+    <div class="intro-card">
+      <h2>FAQ 摘要 · 快速了解</h2>
+      <p><strong>问：</strong> 南宫导航和普通导航站有什么不同？<br>
+      <strong>答：</strong> 重点放在实用性与低冗余，每个分类下的条目尽量控制在合理数量内，避免“大全但无用”。</p>
+      <p style="margin-top:0.8rem;"><strong>问：</strong> 是否需要付费或注册？<br>
+      <strong>答：</strong> 导航本身完全免费，无注册要求。部分外部站点可能有自己的规则。</p>
+      <p style="margin-top:0.8rem;"><strong>问：</strong> 如何跟上更新节奏？<br>
+      <strong>答：</strong> 你可以不定期回访首页，分类列表的变动会在顶部标注最近更新时间。</p>
+    </div>
+
+    <!-- 页尾访问提示 -->
+    <div class="cta-footer">
+      <p>
+        如果你需要一份结构清晰的资源索引，不妨试试基于分类浏览的方式。<br>
+        直接访问 <a href="https://nav-nangong.com">南宫导航</a> 即可查看当前所有分类及排序。
+      </p>
+      <p class="small-meta">
+        页面内容仅供参考，外部链接的真实性与可用性以目标网站为准。
+      </p>
+    </div>
+  </main>
+
+</body>
+</html>
