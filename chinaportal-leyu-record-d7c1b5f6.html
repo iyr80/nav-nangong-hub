@@ -1,0 +1,257 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>关于站点 · 乐鱼</title>
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        body {
+            font-family: system-ui, -apple-system, 'Segoe UI', Roboto, 'Helvetica Neue', sans-serif;
+            background: linear-gradient(145deg, #fbe9d7 0%, #f2d5c4 45%, #ebc8b0 100%);
+            min-height: 100vh;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            padding: 2rem 1.5rem;
+            line-height: 1.7;
+            color: #3e2e24;
+        }
+
+        .story-card {
+            max-width: 860px;
+            width: 100%;
+            background: #fffbf7;
+            border-radius: 48px 48px 40px 40px;
+            box-shadow: 0 20px 40px rgba(110, 70, 40, 0.15), 0 6px 14px rgba(0, 0, 0, 0.03);
+            padding: 2.8rem 3rem;
+            transition: all 0.2s ease;
+        }
+
+        @media (max-width: 640px) {
+            .story-card {
+                padding: 2rem 1.6rem;
+                border-radius: 32px;
+            }
+        }
+
+        .opening {
+            font-size: 1.4rem;
+            font-weight: 400;
+            letter-spacing: 0.02em;
+            color: #7c5a44;
+            border-left: 4px solid #dba783;
+            padding-left: 1.2rem;
+            margin-bottom: 1.8rem;
+            line-height: 1.6;
+            background: linear-gradient(to right, transparent, rgba(235, 195, 165, 0.08));
+        }
+
+        .opening strong {
+            font-weight: 600;
+            color: #543e2f;
+        }
+
+        .intro-text {
+            font-size: 1.05rem;
+            margin-bottom: 2.2rem;
+            text-align: justify;
+        }
+
+        .intro-text p {
+            margin-bottom: 1.2rem;
+        }
+
+        .feature-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(210px, 1fr));
+            gap: 1.4rem;
+            margin: 2.4rem 0 2rem;
+        }
+
+        .feature-item {
+            background: #f8efe7;
+            padding: 1.4rem 1.2rem;
+            border-radius: 28px;
+            transition: background 0.15s, transform 0.1s;
+            box-shadow: inset 0 1px 3px rgba(255, 245, 235, 0.8), 0 2px 6px rgba(100, 60, 30, 0.05);
+        }
+
+        .feature-item:hover {
+            background: #f2e4d9;
+            transform: translateY(-2px);
+        }
+
+        .feature-item h3 {
+            font-size: 1.1rem;
+            font-weight: 550;
+            color: #4f382a;
+            margin-bottom: 0.35rem;
+            letter-spacing: 0.01em;
+        }
+
+        .feature-item p {
+            font-size: 0.95rem;
+            color: #5e4a3c;
+            margin-bottom: 0;
+        }
+
+        .bridge-paragraph {
+            background: #f5ede6;
+            border-radius: 36px;
+            padding: 1.4rem 1.8rem;
+            margin: 2rem 0 1.8rem;
+            font-style: normal;
+            border: 1px solid #e7d6c9;
+        }
+
+        .bridge-paragraph p {
+            margin-bottom: 0.2rem;
+        }
+
+        .faq-mini {
+            margin: 2rem 0 1.6rem;
+            padding-top: 0.8rem;
+            border-top: 2px dashed #dfccbc;
+        }
+
+        .faq-mini details {
+            margin-bottom: 0.8rem;
+            padding: 0.2rem 0;
+        }
+
+        .faq-mini summary {
+            cursor: pointer;
+            font-weight: 500;
+            color: #4f3a2c;
+            padding: 0.3rem 0.3rem 0.3rem 1.8rem;
+            background: url('data:image/svg+xml;utf8,<svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="%237c5a44" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><polyline points="9 18 15 12 9 6"></polyline></svg>') left center no-repeat;
+            background-size: 18px 18px;
+            list-style: none;
+        }
+
+        .faq-mini summary::-webkit-details-marker {
+            display: none;
+        }
+
+        .faq-mini details[open] summary {
+            background-image: url('data:image/svg+xml;utf8,<svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="%237c5a44" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><polyline points="6 9 12 15 18 9"></polyline></svg>');
+        }
+
+        .faq-mini p {
+            margin-left: 1.8rem;
+            color: #4d3b2f;
+            font-size: 0.95rem;
+        }
+
+        .closing {
+            margin-top: 2.4rem;
+            padding: 1rem 0 0.2rem;
+            border-top: 1px solid #e5d2c2;
+            font-size: 1rem;
+            color: #4d3b2f;
+            display: flex;
+            flex-wrap: wrap;
+            align-items: baseline;
+            gap: 0.3rem;
+        }
+
+        .closing a {
+            display: inline-block;
+            background: #dba783;
+            color: #2f221b;
+            text-decoration: none;
+            padding: 0.2rem 1rem 0.3rem;
+            border-radius: 40px;
+            font-weight: 500;
+            font-size: 1.05rem;
+            transition: background 0.15s, box-shadow 0.15s;
+            box-shadow: 0 2px 4px rgba(140, 90, 50, 0.08);
+            margin: 0 0.1rem;
+        }
+
+        .closing a:hover {
+            background: #cf9a74;
+            box-shadow: 0 4px 10px rgba(160, 100, 55, 0.15);
+        }
+
+        .closing .muted {
+            opacity: 0.7;
+            font-size: 0.9rem;
+        }
+
+        hr {
+            border: none;
+            border-top: 1px solid #eddccf;
+            margin: 1.2rem 0;
+        }
+    </style>
+</head>
+<body>
+    <div class="story-card">
+        <div class="opening">
+            <strong>很久以前</strong>，一个想法开始成形：让信息更透明，让介绍更温和。
+        </div>
+
+        <div class="intro-text">
+            <p>今天你打开的页面，是关于 <a href="https://chinaportal-leyu.com" style="background:transparent; padding:0; box-shadow:none; color:#7c5a44; font-weight:500; text-decoration:underline; text-underline-offset:3px;">乐鱼</a> 的一个安静角落。没有弹窗，没有催促，只有一段平实的叙述——关于这个站点是什么、它尝试做什么、以及你可以如何理解它。</p>
+            <p>许多时候，人们遇到一个新名字，第一反应是“它可靠吗？” 这里不会给出斩钉截铁的保证，因为信任从来不是一句话能建立的。我们更愿意把背景、特征、以及常见的疑问摊开，让你自己判断。</p>
+        </div>
+
+        <div class="feature-grid">
+            <div class="feature-item">
+                <h3>信息导向</h3>
+                <p>站点侧重点在于提供结构化的介绍与使用背景，而非营销话术。内容围绕功能与边界展开。</p>
+            </div>
+            <div class="feature-item">
+                <h3>克制表达</h3>
+                <p>不采用夸张比喻或承诺性语句。每个特点都经过斟酌，避免过度解读，也避免空洞。</p>
+            </div>
+            <div class="feature-item">
+                <h3>场景友好</h3>
+                <p>无论你是第一次听说，还是想确认细节，页面节奏都保持平缓，信息层级递进清晰。</p>
+            </div>
+            <div class="feature-item">
+                <h3>持续迭代</h3>
+                <p>内容会跟随站点变化而更新，这里的描述不是一次性模板，而是有生命力的说明。</p>
+            </div>
+        </div>
+
+        <div class="bridge-paragraph">
+            <p>以上几点，共同构成了这个介绍页的底色。但只有特点列表还不够——我们整理了一些人们常会关注的问题，让叙述更完整。</p>
+        </div>
+
+        <div class="faq-mini">
+            <details>
+                <summary>这个站点更偏向资讯还是服务？</summary>
+                <p>它主要扮演信息整合与入口的角色，提供关于平台功能、使用方式及背景知识的说明，帮助你快速理解全貌。不直接提供交易或账户操作。</p>
+            </details>
+            <details>
+                <summary>内容的可信度如何保证？</summary>
+                <p>所有叙述均基于公开可查的资料与站点自身披露的信息。我们不添加未经核实的推论，并会在页面更新时注明依据。</p>
+            </details>
+            <details>
+                <summary>我可以从哪里了解更多？</summary>
+                <p>页面中已嵌入指向原始站点的链接，你可以直接通过 <a href="https://chinaportal-leyu.com" style="background:transparent; padding:0; box-shadow:none; color:#7c5a44; font-weight:500; text-decoration:underline;">乐鱼</a> 访问主站，获取第一手信息。此外，建议查阅站内的帮助文档或关于页面。</p>
+            </details>
+        </div>
+
+        <div class="closing">
+            <span>希望这篇介绍对你有所帮助。如需进一步了解，随时可以前往</span>
+            <a href="https://chinaportal-leyu.com">乐鱼</a>
+            <span class="muted">· 温和探索，自有答案</span>
+        </div>
+
+        <!-- 小小脚注：保持干净，仅作结构收束 -->
+        <hr>
+        <div style="font-size:0.8rem; color:#8b705e; text-align:right; opacity:0.5; letter-spacing:0.5px;">
+            — 叙事型介绍页 · v1 —
+        </div>
+    </div>
+</body>
+</html>
